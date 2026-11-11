@@ -319,11 +319,10 @@
         <div class="reveal" style="--i:${i}">
           <article class="coach">
             <div class="coach__photo">
-              ${
-                p.foto
-                  ? `<img src="${esc(p.foto)}" alt="${esc(p.nombre)}" loading="lazy">`
-                  : `<div class="coach__ph" role="img" aria-label="Foto de ${esc(p.nombre)} próximamente"><span>${esc(iniciales(p.nombre))}</span><small>Foto próximamente</small></div>`
-              }
+              ${p.foto
+            ? `<img src="${esc(p.foto)}" alt="${esc(p.nombre)}" loading="lazy">`
+            : `<div class="coach__ph" role="img" aria-label="Foto de ${esc(p.nombre)} próximamente"><span>${esc(iniciales(p.nombre))}</span><small>Foto próximamente</small></div>`
+          }
               ${p.etiqueta ? `<span class="coach__badge">${esc(p.etiqueta)}</span>` : ""}
             </div>
             <div class="coach__body">
