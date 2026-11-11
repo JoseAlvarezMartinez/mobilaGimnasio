@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "mobila",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": ["-c", "cd '/private/tmp/claude-501/-Users-josealvarez--claude-spares-spare-nkDDEe/0a83f532-74d2-42a0-8290-337d28e7dc4d/scratchpad/site' && exec python3 -m http.server 4173"],
+      "port": 4173
+    }
+  ]
+}

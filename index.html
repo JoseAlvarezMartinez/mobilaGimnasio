@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mobila Academia · MMA, Boxeo, Muay Thai y Jiu Jitsu en Zona Norte</title>
+  <meta name="description" content="Academia de artes marciales en San Fernando / Tigre y San Isidro / Martínez. MMA, Jiu Jitsu, Kick Boxing, Muay Thai y Boxeo. Reservá tu clase de prueba gratis.">
+  <meta name="theme-color" content="#09090b">
+  <meta property="og:title" content="Mobila Academia · Artes marciales en Zona Norte">
+  <meta property="og:description" content="MMA, Jiu Jitsu, Kick Boxing, Muay Thai y Boxeo. Dos sedes. Reservá tu clase de prueba.">
+  <meta property="og:image" content="assets/logo.jpg">
+  <link rel="icon" href="assets/logo-192.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+
+  <!-- =============================== NAV =============================== -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="#inicio" aria-label="Mobila, ir al inicio">
+        <img src="assets/logo-192.jpg" alt="" width="42" height="42">
+        <span>Mobila</span>
+      </a>
+
+      <nav class="nav__links" id="menu" aria-label="Principal">
+        <a href="#horarios">Horarios</a>
+        <a href="#profesores">Profesores</a>
+        <a href="#planes">Planes</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#sedes">Sedes</a>
+      </nav>
+
+      <a class="btn btn--primary btn--sm nav__cta" href="#contacto">Clase de prueba</a>
+
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- =============================== HERO ============================== -->
+    <section class="hero" id="inicio">
+      <div class="hero__bg" aria-hidden="true">
+        <!--
+          FONDO CON FOTO O VIDEO (opcional)
+          Descomentá UNA de las dos líneas y poné tu archivo en /assets:
+
+          <img class="hero__media" src="assets/hero.jpg" alt="">
+          <video class="hero__media" src="assets/hero.mp4" autoplay muted loop playsinline></video>
+        -->
+        <div class="hero__medal">
+          <img src="assets/logo.jpg" alt="" width="1080" height="1080">
+        </div>
+      </div>
+
+      <div class="container hero__content">
+        <p class="eyebrow hero__in" style="--i:0">Academia de artes marciales · Zona Norte</p>
+        <h1 class="hero__title hero__in" style="--i:1">
+          Forjá tu mejor versión en <span class="gold">Mobila</span>
+        </h1>
+        <p class="hero__lead hero__in" style="--i:2">
+          MMA, Jiu Jitsu, Kick Boxing, Muay Thai y Boxeo para todos los niveles,
+          en nuestras dos sedes: San Fernando / Tigre y San Isidro / Martínez.
+        </p>
+        <div class="hero__actions hero__in" style="--i:3">
+          <a class="btn btn--primary" href="#contacto">
+            Reservá tu clase de prueba gratis
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="#horarios">Ver horarios</a>
+        </div>
+      </div>
+
+      <div class="container hero__in" style="--i:4">
+        <dl class="stats" id="stats"></dl>
+      </div>
+    </section>
+
+    <!-- Cinta de disciplinas (se arma desde config.js) -->
+    <div class="marquee" aria-hidden="true"><div class="marquee__track" id="cinta"></div></div>
+
+    <!-- ===================== SEDES Y CRONOGRAMA ========================== -->
+    <section class="section" id="horarios">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow"><span>01</span> Sedes y horarios</p>
+          <h2 class="section__title">Cronograma <span class="outline">de clases</span></h2>
+          <p class="section__lead">Elegí tu sede y el día. Tocá una clase para reservar tu prueba gratis.</p>
+        </header>
+
+        <div class="schedule reveal" id="schedule" data-vista="dia">
+          <div class="schedule__bar">
+            <div class="sede-tabs" id="sede-tabs" role="tablist" aria-label="Elegí la sede"></div>
+            <div class="chips" id="chips" role="group" aria-label="Filtrar por disciplina"></div>
+          </div>
+
+          <div class="schedule__nav">
+            <div class="day-tabs" id="day-tabs" role="tablist" aria-label="Elegí el día"></div>
+            <div class="vista" role="group" aria-label="Cambiar vista">
+              <button type="button" data-vista="dia" aria-pressed="true">Por día</button>
+              <button type="button" data-vista="semana" aria-pressed="false">Semana</button>
+            </div>
+          </div>
+
+          <!-- Vista por día (todas las pantallas) -->
+          <div class="schedule__day" id="day-view" aria-live="polite"></div>
+
+          <!-- Vista semana (solo escritorio, con el botón "Semana") -->
+          <div class="schedule__week" id="week-view"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PROFESORES =========================== -->
+    <section class="section section--alt" id="profesores">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow"><span>02</span> Nuestro equipo</p>
+          <h2 class="section__title">Entrená con <span class="outline">los que saben</span></h2>
+          <p class="section__lead">Peleadores y profesores con trayectoria arriba del ring, la jaula y el tatami.</p>
+        </header>
+
+        <div class="coaches" id="coaches"></div>
+      </div>
+    </section>
+
+    <!-- ============================== PLANES ============================= -->
+    <section class="section" id="planes">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow"><span>03</span> Cuotas</p>
+          <h2 class="section__title">Planes <span class="outline">mensuales</span></h2>
+          <p class="section__lead">Elegí cuánto querés entrenar. Pagando en efectivo tenés precio especial.</p>
+        </header>
+
+        <!-- Los planes se cargan desde js/data/planes.js -->
+        <div class="plans reveal" id="plans"></div>
+
+        <div class="notes">
+          <article class="note note--gold reveal">
+            <h3>Clase de prueba gratis</h3>
+            <p>Vení a conocer la academia antes de anotarte. Escribinos para reservar tu lugar.</p>
+            <a class="note__link" href="#contacto">Reservar <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+          <article class="note reveal" style="--i:1">
+            <h3>Empezá cualquier día</h3>
+            <p>Tu plan dura un mes desde el día en que te inscribís. Si te inscribís el 22, vence el 22 del mes siguiente.</p>
+          </article>
+          <article class="note reveal" style="--i:2" id="pago-note" hidden>
+            <h3>Pago por transferencia</h3>
+            <div class="alias">
+              <span><small>Alias Mercado Pago</small><strong data-pago="alias"></strong></span>
+              <button class="btn btn--ghost btn--sm" type="button" id="copiar-alias">Copiar</button>
+            </div>
+            <p>Titular: <span data-pago="titular"></span>. Enviá el comprobante por Instagram a <span data-pago="instagram"></span>.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== CONTACTO Y UBICACIÓN ======================= -->
+    <section class="section section--alt" id="contacto">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow"><span>04</span> Contacto</p>
+          <h2 class="section__title">Reservá tu <span class="outline">clase de prueba</span></h2>
+          <p class="section__lead">La primera clase es gratis. Completá el formulario y la coordinamos por WhatsApp.</p>
+        </header>
+
+        <div class="contact">
+          <form class="form reveal" id="contacto-form" novalidate>
+            <div class="field">
+              <label for="f-nombre">Nombre</label>
+              <input id="f-nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre" required>
+            </div>
+            <div class="field">
+              <label for="f-telefono">Teléfono</label>
+              <input id="f-telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="11 5555-5555" required>
+            </div>
+            <div class="field">
+              <label for="f-sede">Sede</label>
+              <select id="f-sede" name="sede"></select>
+            </div>
+            <div class="field">
+              <label for="f-disciplina">Disciplina</label>
+              <select id="f-disciplina" name="disciplina"></select>
+            </div>
+            <div class="field field--full">
+              <label for="f-mensaje">Mensaje <span>(opcional)</span></label>
+              <textarea id="f-mensaje" name="mensaje" rows="3" placeholder="Contanos tu experiencia previa o qué día te gustaría venir"></textarea>
+            </div>
+            <div class="form__foot field--full">
+              <button class="btn btn--primary" type="submit">
+                Enviar por WhatsApp
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </button>
+              <p class="form__status" id="form-status" role="status"></p>
+            </div>
+          </form>
+
+          <aside class="contact__info reveal" style="--i:1">
+            <h3>Hablemos</h3>
+            <ul class="contact__list" id="contact-list"></ul>
+          </aside>
+        </div>
+
+        <div class="section__sub reveal" id="sedes">
+          <p class="eyebrow"><span>05</span> Dónde estamos</p>
+          <h2 class="section__title section__title--sm">Dos sedes <span class="outline">en Zona Norte</span></h2>
+        </div>
+        <div class="locations" id="locations"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================== FOOTER =============================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a class="brand" href="#inicio">
+        <img src="assets/logo-192.jpg" alt="" width="42" height="42" loading="lazy">
+        <span>Mobila</span>
+      </a>
+      <p class="footer__tag">MMA · Jiu Jitsu · Kick Boxing · Muay Thai · Boxeo</p>
+      <p class="footer__copy">© <span id="year"></span> Mobila Academia Argentina</p>
+    </div>
+  </footer>
+
+  <!-- Datos editables (primero) y lógica (al final) -->
+  <script src="js/data/config.js"></script>
+  <script src="js/data/profesores.js"></script>
+  <script src="js/data/cronograma.js"></script>
+  <script src="js/data/planes.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
